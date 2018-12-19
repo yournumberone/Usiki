@@ -1,0 +1,56 @@
+
+
+<form action="/visits" method="POST">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Ваше имя</label>
+    <input type="text" class="form-control" name="exampleFormControlInput1" placeholder="Здесь могло быть ваше имя" value="<%= @cliento %>">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Укажите дату и время</label>
+    <input type="text" class="form-control" name="exampleFormControlInput2" placeholder="дд.мм чч.мм" value="<%= @time %>">
+  </div>
+  <div class="form-group">
+    <div class="form-group">
+      <label for="exampleFormControlInput3">Оставьте Свой номер телефона</label>
+      <input type="text" class="form-control" name="exampleFormControlInput3" placeholder="Ваш номер" value="<%= @phone %>">
+    </div>
+    <label for="exampleFormControlSelect1">Выберите мастера</label>
+    <select class="form-control" name="exampleFormControlSelect1">
+      <option <%= @master == 'Walter White' ? 'selected' : '' %>>Walter White</option>
+      <option <%= @master == 'Jesse Pinkman' ? 'selected' : '' %>>Jesse Pinkman</option>
+      <option <%= @master == 'Gustavo Fring' ? 'selected' : '' %>>Gustavo Fring</option>
+
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Комментарий</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Ваши пожелания" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+  <label for="color">Выберите цвет чего-нибудь</label>
+  <select id="color" name="color">
+  <option value="#7bd148">Green</option>
+  <option value="#5484ed">Bold blue</option>
+  <option value="#a4bdfc">Blue</option>
+  <option value="#46d6db">Turquoise</option>
+  <option value="#7ae7bf">Light green</option>
+  <option value="#51b749">Bold green</option>
+  <option value="#fbd75b">Yellow</option>
+  <option value="#ffb878">Orange</option>
+  <option value="#ff887c">Red</option>
+  <option value="#dc2127">Bold red</option>
+  <option value="#dbadff">Purple</option>
+  <option value="#e1e1e1">Gray</option>
+</select>
+</div>
+
+
+<script type="text/javascript">
+$(function() {
+  $('#name').simplecolorpicker();
+  } );
+</script>
+
+  <button type="submit" class="btn btn-success">Пушка</button>
+</form>
