@@ -7,6 +7,19 @@ configure do
   enable :sessions
 end
 
+def get_base
+  return SQLite3::Database.new "shopbase.db"
+end
+
+configure do
+    baseus = get_base
+    baseus.execute 'CREATE TABLE IF NOT EXISTS "Clients"
+    ("name" TEXT,
+    "phone" TEXT,
+    "datetime" TEXT,
+    "master" TEXT)'
+end
+
 helpers do
   def username
     session[:identity] ? session[:identity] : 'Комната мастера'
@@ -42,11 +55,8 @@ post '/visits' do
       return   erb :visits
     end
   end
-
-  list = File.open("./public/zapis.txt", "a")
-  list.puts "(Time: #{@time}) (client: #{@cliento}) (phone:#{@phone})(master:#{@master}) color: #{@color}"
-  list.close
-  list.close
+  baseus = get_base
+  baseus.execute("insert into Clients values (?, ?, ?, ?)", [@cliento, @phone, @time, @master])
   erb "Dear #{@cliento}, We will wait you #{@time}"
 end
 
