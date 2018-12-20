@@ -1,17 +1,3 @@
-/*!
- * Very simple jQuery Color Picker
- * https://github.com/tkrotoff/jquery-simplecolorpicker
- *
- * Copyright (C) 2012-2013 Tanguy Krotoff <tkrotoff@gmail.com>
- *
- * Licensed under the MIT license
- */
-
-/**
- * Inspired by Bootstrap Twitter.
- * See https://github.com/twbs/bootstrap/blob/master/less/navbar.less
- * See https://github.com/twbs/bootstrap/blob/master/less/dropdowns.less
- */
 
 .simplecolorpicker.picker {
   position: absolute;
