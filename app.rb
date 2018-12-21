@@ -77,7 +77,7 @@ end
 end
 
 post '/access_to_secret_place' do
-@logfile = File.read("./public/zapis.txt")
+@fefile = get_base
   erb :secret
 end
 
