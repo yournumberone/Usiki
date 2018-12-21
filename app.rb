@@ -8,7 +8,9 @@ configure do
 end
 
 def get_base
-  return SQLite3::Database.new "shopbase.db"
+  db = SQLite3::Database.new "shopbase.db"
+  db.results_as_hash = true
+  return db
 end
 
 configure do
@@ -78,7 +80,7 @@ end
 
 post '/access_to_secret_place' do
 @fefile = get_base
-  erb :secret
+erb :secret
 end
 
 
