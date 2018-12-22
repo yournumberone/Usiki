@@ -16,10 +16,10 @@
     </div>
     <label for="exampleFormControlSelect1">Выберите мастера</label>
     <select class="form-control" name="exampleFormControlSelect1">
-      <option <%= @master == 'Walter White' ? 'selected' : '' %>>Walter White</option>
-      <option <%= @master == 'Jesse Pinkman' ? 'selected' : '' %>>Jesse Pinkman</option>
-      <option <%= @master == 'Gustavo Fring' ? 'selected' : '' %>>Gustavo Fring</option>
-
+    
+    <% @azaza. each do |barber|%>
+      <option <%= @master == barber['barber'] ? 'selected' : '' %>><%=barber['barber']%></option>
+    <% end%>
     </select>
   </div>
 
@@ -30,18 +30,18 @@
   <div class="form-group">
   <label for="color">Выберите цвет чего-нибудь</label>
   <select id="color" name="color">
-  <option value="#7bd148">Green</option>
-  <option value="#5484ed">Bold blue</option>
-  <option value="#a4bdfc">Blue</option>
-  <option value="#46d6db">Turquoise</option>
-  <option value="#7ae7bf">Light green</option>
-  <option value="#51b749">Bold green</option>
-  <option value="#fbd75b">Yellow</option>
-  <option value="#ffb878">Orange</option>
-  <option value="#ff887c">Red</option>
-  <option value="#dc2127">Bold red</option>
-  <option value="#dbadff">Purple</option>
-  <option value="#e1e1e1">Gray</option>
+  <option value="#7bd148">Зелёный</option>
+  <option value="#5484ed">Синий</option>
+  <option value="#a4bdfc">Голубой</option>
+  <option value="#46d6db">Бирюзоый</option>
+  <option value="#7ae7bf">Светло-зелёный</option>
+  <option value="#51b749">Тёмно-зелёный</option>
+  <option value="#fbd75b">Желтый</option>
+  <option value="#ffb878">Оранжевый</option>
+  <option value="#ff887c">Красный</option>
+  <option value="#dc2127">Тёмно-красный</option>
+  <option value="#dbadff">Фиолетовый</option>
+  <option value="#e1e1e1">Серый</option>
 </select>
 </div>
 

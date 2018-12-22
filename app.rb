@@ -13,6 +13,23 @@ def get_base
   return db
 end
 
+before do
+  db = get_base
+  @azaza = db.execute 'select * from Barbers'
+end
+
+def is_barber_exists? db, name
+  db.execute('select * from Barbers where barber=?', [name]).length > 0
+end
+
+def seed_db db, barbers
+  barbers.each do |barber|
+    if !is_barber_exists? db, barber
+      db.execute 'insert into Barbers (barber) values (?)', [barber]
+    end
+  end
+end
+
 configure do
     baseus = get_base
     baseus.execute 'CREATE TABLE IF NOT EXISTS "Clients"
@@ -20,6 +37,10 @@ configure do
     "phone" TEXT,
     "datetime" TEXT,
     "master" TEXT)'
+    baseus.execute 'CREATE TABLE IF NOT EXISTS "Barbers"
+    (ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    barber TEXT)'
+    seed_db baseus, ['Walter White', 'Jesse Pinkman', 'Gustavo Fring']
 end
 
 helpers do
